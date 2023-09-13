@@ -1,0 +1,8 @@
+- name: Install network diagnosis tools
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: |
+    {{ net_tooling_packages + net_tooling_extra_packages }}
+  become: true
+  become_user: root

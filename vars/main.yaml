@@ -1,0 +1,12 @@
+net_tooling_packages:
+  - bridge-utils
+  - dnsutils
+  - iperf3
+  - iputils-ping
+  - mtr
+  - nmap
+  - net-tools
+  - netcat
+  - speedtest-cli
+  - traceroute
+  - whois

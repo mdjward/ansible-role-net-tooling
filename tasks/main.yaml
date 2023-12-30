@@ -1,6 +1,6 @@
 - name: Install network diagnosis tools
   package:
-    name: "{{ item }}"
+    name: "{{ net_tooling_alternative_package_names[item] | default(item) }}"
     state: present
   loop: |
     {{ net_tooling_packages + net_tooling_extra_packages }}

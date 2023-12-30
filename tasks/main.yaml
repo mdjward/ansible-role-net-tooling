@@ -1,8 +1,10 @@
 - name: Install network diagnosis tools
   package:
-    name: "{{ net_tooling_alternative_package_names[item] | default(item) }}"
+    name: |-
+      {{ net_tooling_packages
+        | difference(net_tooling_alternative_package_names | dict2items | map(attribute='key'))
+        | union(net_tooling_alternative_package_names | dict2items | map(attribute='value'))
+        | union(net_tooling_extra_packages) }}
     state: present
-  loop: |
-    {{ net_tooling_packages + net_tooling_extra_packages }}
   become: true
   become_user: root
